@@ -18,4 +18,10 @@ describe('GalleryComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('section element', () => {
+    const galleryContainer: HTMLElement = fixture.nativeElement;
+    const p = galleryContainer.querySelector('section')!;
+    expect(p.id).toEqual("gallery");
+  });
 });
