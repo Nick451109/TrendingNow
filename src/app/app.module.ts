@@ -6,6 +6,7 @@ import { ButtonComponent } from './button/button.component';
 import { HomeComponent } from './home/home.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { HttpClientModule } from  '@angular/common/http';
+import { TableComponent } from './table/table.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { HttpClientModule } from  '@angular/common/http';
     AppComponent,
     ButtonComponent,
     HomeComponent,
-    GalleryComponent
+    GalleryComponent,
+    TableComponent
   ],
   imports: [
     HttpClientModule,
