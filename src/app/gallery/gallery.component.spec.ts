@@ -24,4 +24,6 @@ describe('GalleryComponent', () => {
     const p = galleryContainer.querySelector('section')!;
     expect(p.id).toEqual("gallery");
   });
+
+  
 });
