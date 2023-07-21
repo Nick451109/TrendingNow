@@ -2,7 +2,6 @@ export interface Video {
     id:string,
     title:string,
     likes:number,
-    views:number,
-    comments:number,
-    thumnail:string
+    view_count:number,
+    comment_count:number
 }
