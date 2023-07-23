@@ -15,31 +15,7 @@ export class TableComponent {
     this.dataProvider.getResponse().subscribe((response) => {
       this.data = (response as Video[]);
       
-      
-      //---------------------------------------------------------
-      //10 videos mas trending por numero de vistas
-      const data:any[]=this.data;
-
-      data.sort((a, b) => b.view_count - a.view_count);
-
-      const topVideos:any[] = [];
-      const videoIdsAdded: Set<string> = new Set();
-
-      data.forEach((video) => {
-        if (!videoIdsAdded.has(video.video_id)) {
-          topVideos.push(video);
-          videoIdsAdded.add(video.video_id);
-      
-          // Detener el bucle cuando se hayan agregado 10 videos
-          if (topVideos.length === 10) {
-            return;
-          }
-        }
-      });
-
-      const top10Videos = topVideos.slice(0, 10);
-
-      top10Videos.forEach((element:Video) => {
+      this.data.forEach((element:Video) => {
         let fechaTrending = new Date(element.trending_date)
         let fechaPublicacion = new Date (element.publishedAt)
         
@@ -51,7 +27,7 @@ export class TableComponent {
   
         element.trending_time = diferenciaTiempoDias
       });
-      this.data = top10Videos;
+      
     })
   }
 
