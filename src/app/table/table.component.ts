@@ -15,18 +15,7 @@ export class TableComponent {
     this.dataProvider.getResponse().subscribe((response) => {
       this.data = (response as Video[]);
       
-      this.data.forEach((element:Video) => {
-        let fechaTrending = new Date(element.trending_date)
-        let fechaPublicacion = new Date (element.publishedAt)
-        
-        // Restamos las dos fechas para obtener la diferencia en milisegundos
-        let diferenciaTiempoMs:number = fechaTrending.getTime() - fechaPublicacion.getTime();
-  
-        // Convertimos la diferencia a días, dividiendo por el número de milisegundos en un día (1000 ms * 60 s * 60 min * 24 h)
-        let diferenciaTiempoDias:number = Math.floor(diferenciaTiempoMs / (1000 * 60 * 60 * 24));
-  
-        element.trending_time = diferenciaTiempoDias
-      });
+      
       //---------------------------------------------------------
       //10 videos mas trending por numero de vistas
       const data:any[]=this.data;
@@ -56,6 +45,19 @@ export class TableComponent {
         console.log(`${index + 1}. ${video.title} - Views: ${video.view_count}`);
       });
 
+      top10Videos.forEach((element:Video) => {
+        let fechaTrending = new Date(element.trending_date)
+        let fechaPublicacion = new Date (element.publishedAt)
+        
+        // Restamos las dos fechas para obtener la diferencia en milisegundos
+        let diferenciaTiempoMs:number = fechaTrending.getTime() - fechaPublicacion.getTime();
+  
+        // Convertimos la diferencia a días, dividiendo por el número de milisegundos en un día (1000 ms * 60 s * 60 min * 24 h)
+        let diferenciaTiempoDias:number = Math.floor(diferenciaTiempoMs / (1000 * 60 * 60 * 24));
+  
+        element.trending_time = diferenciaTiempoDias
+      });
+      this.data = top10Videos;
     })
   }
 
