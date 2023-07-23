@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Video } from '../interfaces/video';
 import Chart from 'chart.js/auto';
 import { GetDataService } from '../providers/get-data.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-chart',
@@ -38,7 +39,7 @@ export class ChartComponent {
       });
 
       const top10Videos = topVideos.slice(0, 10);
-      const names:string[] = [];
+      const names:string[][] = [];
       const views:number[] = [];
       const likes:number[] = [];
       top10Videos.forEach((element:Video) => {
@@ -52,7 +53,7 @@ export class ChartComponent {
         let diferenciaTiempoDias:number = Math.floor(diferenciaTiempoMs / (1000 * 60 * 60 * 24));
   
         element.trending_time = diferenciaTiempoDias
-        names.push(element.title);
+        names.push(element.title.split(' '));
         views.push(element.view_count);
         likes.push(element.likes);
       });
@@ -63,7 +64,7 @@ export class ChartComponent {
         
 
         data: {// values on X-Axis
-          labels: names, 
+          labels: names,
            datasets: [
             {
               label: "Views",
@@ -78,9 +79,19 @@ export class ChartComponent {
           ]
         },
         options: {
-          aspectRatio:2.5
+          aspectRatio:2.5,
+          responsive: true,
+          plugins: {
+            tooltip:{
+              callbacks:{
+                title:(context) => {
+                  return context[0].label.replaceAll(',', ' ');
+                }
+              }
+            }
         }
-        
+
+        }
       });
     })
     
