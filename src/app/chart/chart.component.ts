@@ -38,7 +38,9 @@ export class ChartComponent {
       });
 
       const top10Videos = topVideos.slice(0, 10);
-
+      const names:string[] = [];
+      const views:number[] = [];
+      const likes:number[] = [];
       top10Videos.forEach((element:Video) => {
         let fechaTrending = new Date(element.trending_date)
         let fechaPublicacion = new Date (element.publishedAt)
@@ -50,22 +52,27 @@ export class ChartComponent {
         let diferenciaTiempoDias:number = Math.floor(diferenciaTiempoMs / (1000 * 60 * 60 * 24));
   
         element.trending_time = diferenciaTiempoDias
+        names.push(element.title);
+        views.push(element.view_count);
+        likes.push(element.likes);
       });
       this.data = top10Videos;
+      
       this.chart = new Chart("video_chart", {
         type: 'bar', //this denotes tha type of chart
-  
+        
+
         data: {// values on X-Axis
-          labels: [this.data[0].title, this.data[1].title], 
+          labels: names, 
            datasets: [
             {
               label: "Views",
-              data: [this.data[0].view_count, this.data[1].view_count],
+              data: views,
               backgroundColor: 'blue'
             },
             {
               label: "Likes",
-              data: [this.data[0].likes, this.data[1].likes],
+              data: likes,
               backgroundColor: 'limegreen'
             }  
           ]
