@@ -20,8 +20,6 @@ export class TableComponent {
       //10 videos mas trending por numero de vistas
       const data:any[]=this.data;
 
-
-
       data.sort((a, b) => b.view_count - a.view_count);
 
       const topVideos:any[] = [];
@@ -32,7 +30,7 @@ export class TableComponent {
           topVideos.push(video);
           videoIdsAdded.add(video.video_id);
       
-          // Detener el bucle cuando se hayan agregado 10 videos al Top 10
+          // Detener el bucle cuando se hayan agregado 10 videos
           if (topVideos.length === 10) {
             return;
           }
@@ -40,10 +38,6 @@ export class TableComponent {
       });
 
       const top10Videos = topVideos.slice(0, 10);
-
-      top10Videos.forEach((video, index) => {
-        console.log(`${index + 1}. ${video.title} - Views: ${video.view_count}`);
-      });
 
       top10Videos.forEach((element:Video) => {
         let fechaTrending = new Date(element.trending_date)
