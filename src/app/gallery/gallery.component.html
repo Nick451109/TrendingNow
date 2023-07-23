@@ -1,25 +1,19 @@
-
 <section id="gallery" class="gallery">
+    <h2 class="text-center mb-4">Video Gallery</h2>
+
     <div class="container-fluid">
       
-      <div class="row gy-4 justify-content-center" >
-        <!-- <div class="col-xl-3 col-lg-4 col-md-6">
+      <div class="row gy-4 justify-content-center own-gallery overflow-auto mx-4">
+        
+        
+        <div class="col-xl-3 col-lg-4 col-md-6 justify-content-center" *ngFor="let datum of data" >
           <div class="gallery-item h-100">
-            <img src="../assets/img/gallery/gallery-1.jpg" class="img-fluid" alt="foto">
+            <img src="{{datum.thumbnail_link}}"  class="img-fluid own-image" alt="foto">
             <div class="gallery-links d-flex align-items-center justify-content-center">
-              <a href="../assets/img/gallery/gallery-1.jpg" title="Gallery 1" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-              <a href="/src/gallery-single.html" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              <!-- <a href="{{datum.thumbnail_link}}" title="{{datum.title}}" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a> -->
+              <a href="https://www.youtube.com/watch?v={{datum.video_id}}" target="_blank" class="details-link"><i class="bi bi-link-45deg"></i></a>
             </div>
-            <div>Top 10 surfing videos going wrong! You wont believe it</div>
-          </div>
-        </div>End Gallery Item -->
-        <div class="col-xl-3 col-lg-4 col-md-6"  *ngFor="let number of [0,1,2,3,4]">
-          <div class="gallery-item h-100">
-            <img src="{{data[number].thumbnail_link}}"  class="img-fluid w-100" alt="foto">
-            <div class="gallery-links d-flex align-items-center justify-content-center">
-              <a href="{{data[number].thumbnail_link}}" title="{{data[number].title}}" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-            </div>
-            <div>{{ data[number].title }} </div>
+            <div>{{ datum.title }} </div>
           </div>
         </div><!-- End Gallery Item -->
         

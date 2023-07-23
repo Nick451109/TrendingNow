@@ -1,0 +1,11 @@
+.own-gallery{
+    height: 60vh !important;
+    max-height: 60vh !important;
+
+}
+
+.own-image{
+    object-fit: cover !important;
+    width: 100%;
+    
+}

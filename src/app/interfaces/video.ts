@@ -8,4 +8,5 @@ export interface Video {
     publishedAt: string,
     trending_date: string,
     trending_time: number,
+    video_id:string,
 }
