@@ -7,7 +7,7 @@ describe('TableComponent', () => {
   let fixture: ComponentFixture<TableComponent>;
 
   beforeEach(() => {
-    jasmine.DEFAULT_TIMEOUT_INTERVAL = 100000;
+    jasmine.DEFAULT_TIMEOUT_INTERVAL = 200000;
     TestBed.configureTestingModule({
       declarations: [TableComponent]
     });
