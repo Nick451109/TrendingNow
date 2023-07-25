@@ -22,7 +22,8 @@ import { ChartComponent } from './chart/chart.component';
   imports: [
     HttpClientModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    GalleryComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
