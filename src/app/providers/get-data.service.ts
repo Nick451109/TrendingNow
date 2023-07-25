@@ -7,7 +7,7 @@ import { Video } from '../interfaces/video';
 })
 export class GetDataService {
 
-  private URL: string = 'https://dataset-13959-default-rtdb.firebaseio.com/collection.json';
+  private URL: string = 'https://datasetbd-default-rtdb.firebaseio.com/collection.json';
   private data: any;
   constructor(private http:HttpClient) { }
 

@@ -9,6 +9,7 @@ describe('GalleryComponent', () => {
   let fixture: ComponentFixture<GalleryComponent>;
 
   beforeEach(() => {
+    jasmine.DEFAULT_TIMEOUT_INTERVAL = 100000;
     TestBed.configureTestingModule({
       imports: [ HttpClientModule ],
       providers: [ GetDataService ],

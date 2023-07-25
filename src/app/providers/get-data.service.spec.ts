@@ -8,6 +8,7 @@ describe('GetDataService', () => {
   let service: GetDataService;
 
   beforeEach(() => {
+    jasmine.DEFAULT_TIMEOUT_INTERVAL = 100000;
     TestBed.configureTestingModule({
       imports: [HttpClientModule],
       providers: [GetDataService]
