@@ -57,7 +57,10 @@ export class ChartComponent {
         likes.push(element.likes);
       });
       this.data = top10Videos;
-      
+      if(this.chart){
+        this.chart.clear();
+        this.chart.destroy();
+    }
       this.chart = new Chart("video_chart", {
         type: 'bar', //this denotes tha type of chart
         

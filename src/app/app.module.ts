@@ -4,10 +4,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ButtonComponent } from './button/button.component';
 import { HomeComponent } from './home/home.component';
-import { GalleryComponent } from './gallery/gallery.component';
 import { HttpClientModule } from  '@angular/common/http';
 import { TableComponent } from './table/table.component';
 import { ChartComponent } from './chart/chart.component';
+import { GalleryComponent } from './gallery/gallery.component';
 
 
 @NgModule({
@@ -17,13 +17,12 @@ import { ChartComponent } from './chart/chart.component';
     HomeComponent,
     GalleryComponent,
     TableComponent,
-    ChartComponent
+    ChartComponent,
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
-    AppRoutingModule,
-    GalleryComponent
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
