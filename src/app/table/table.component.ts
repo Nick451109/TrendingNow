@@ -12,7 +12,7 @@ export class TableComponent {
   constructor(private dataProvider: GetDataService){}
   
   ngOnInit(){
-    this.dataProvider.getResponse().subscribe((response) => {
+    this.dataProvider.getResponse().subscribe((response:any) => {
       this.data = (response as Video[]);
       
       this.data.forEach((element:Video) => {

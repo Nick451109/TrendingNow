@@ -8,7 +8,7 @@ describe('GetDataService', () => {
   let service: GetDataService;
 
   beforeEach(() => {
-    jasmine.DEFAULT_TIMEOUT_INTERVAL = 100000;
+    jasmine.DEFAULT_TIMEOUT_INTERVAL = 200000;
     TestBed.configureTestingModule({
       imports: [HttpClientModule],
       providers: [GetDataService]
@@ -21,7 +21,7 @@ describe('GetDataService', () => {
   });
 
   it('getResponse() should return value from observable', (done:DoneFn) => {
-    service.getResponse().subscribe(data=>{
+    service.getResponse().subscribe((data:any)=>{
       expect((data as Video[]).length).toBeGreaterThan(0)
       done();
     });

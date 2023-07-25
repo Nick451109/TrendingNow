@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Video } from '../interfaces/video';
 import Chart from 'chart.js/auto';
 import { GetDataService } from '../providers/get-data.service';
-import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-chart',
@@ -17,7 +16,7 @@ export class ChartComponent {
     this.createChart();
   }
   createChart(){
-    this.dataProvider.getResponse().subscribe((response) => {
+    this.dataProvider.getResponse().subscribe((response:any) => {
       this.data = (response as Video[]);
       const data:any[]=this.data;
 

@@ -9,7 +9,6 @@ describe('ChartComponent', () => {
   let fixture: ComponentFixture<ChartComponent>;
 
   beforeEach(() => {
-    jasmine.DEFAULT_TIMEOUT_INTERVAL = 200000;
     TestBed.configureTestingModule({
       imports: [HttpClientModule],
       providers: [GetDataService],
