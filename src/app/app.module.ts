@@ -22,7 +22,8 @@ import { GalleryComponent } from './gallery/gallery.component';
   imports: [
     HttpClientModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

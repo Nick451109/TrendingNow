@@ -15,11 +15,17 @@ export class ChartComponent {
   ngOnInit(){
     this.createChart();
   }
+
+  ngOnDestroy(){
+    if (this.chart) {
+      this.chart.destroy();
+    }
+  }
   createChart(){
     this.dataProvider.getResponse().subscribe((response:any) => {
       this.data = (response as Video[]);
       const data:any[]=this.data;
-
+        
       data.sort((a, b) => b.view_count - a.view_count);
 
       const topVideos:any[] = [];
@@ -57,10 +63,9 @@ export class ChartComponent {
         likes.push(element.likes);
       });
       this.data = top10Videos;
-      if(this.chart){
-        this.chart.clear();
+      if (this.chart) {
         this.chart.destroy();
-    }
+      }
       this.chart = new Chart("video_chart", {
         type: 'bar', //this denotes tha type of chart
         
